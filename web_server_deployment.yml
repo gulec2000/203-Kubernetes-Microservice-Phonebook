@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: web
+  template:
+    metadata:
+      labels:
+        name: web
+        app: phonebookapp
+    spec:
+      containers: 
+        - image: clarusways/phonebook
+          imagePullPolicy: Always
+          name: myweb
+          ports: 
+            - containerPort: 3000
+          env:
+            - name: "DBHOST"
+              value: "mysqldb://db-service:3306"
+          resources:
+            limits:
+              cpu: 100m
+            requests:
+              cpu: 80m
+
