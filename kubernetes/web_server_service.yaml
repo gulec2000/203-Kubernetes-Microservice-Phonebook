@@ -4,14 +4,13 @@ metadata:
   name: web-service
   labels:
     name: web
-    app: phonebookapp
+​
 spec:
   selector:
-    name: web 
+    name: web
   type: NodePort
   ports:
-   - name: http
-     port: 3000
-     targetPort: 3000
-     protocol: TCP
-
+    - name: webserver
+      port: 80
+      nodePort: 30001
+      targetPort: 80
