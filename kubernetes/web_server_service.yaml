@@ -4,7 +4,6 @@ metadata:
   name: web-service
   labels:
     name: web
-​
 spec:
   selector:
     name: web
